@@ -1,0 +1,12 @@
+{
+    "SignIn": {
+        "login": "Connexion",
+        "emailPlaceholder": "Email",
+        "passwordPlaceholder": "Mot de passe",
+        "passwordVisibilityToggle": "Toggle visibility",
+        "rememberMe": "Remember me",
+        "forgotPassword": "Forgot Password?",
+        "requestProcessing": "Request processing, please wait...",
+        "createAccount": "Create an account."
+    }
+}
