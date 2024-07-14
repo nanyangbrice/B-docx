@@ -6,9 +6,13 @@ import Toast from 'react-native-toast-message';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Text, TextInput, TouchableOpacity, View, Alert, ActivityIndicator } from 'react-native';
 import { ToastService } from '../../services/ToastService';
+import { Animated } from 'react-native';
+
 
 export default function Otp({ navigation }) {
   const [code, setCode] = useState(['', '', '', '', '']);
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleCodeChange = (index, value) => {
     const newCode = [...code];
@@ -23,9 +27,10 @@ export default function Otp({ navigation }) {
 
   return (
     <View className="flex-1 p-4 bg-white">
-      <Text className="text-3xl font-bold mb-4 mt-10">Verify Code</Text>
+      <Text className="text-3xl font-bold mb-4 mt-10">Confirm OTP</Text>
       <Text className="text-base text-gray-500 mb-8">
-        Enter the 4-digit code sent to you at your email.
+        Please fill in the OTP message a05 characters that you sent to this email :  
+        <Text className="text-base text-orange-600 mx-1 font-semibold">b.docx@example.com</Text>
       </Text>
       <View>
         <View className="flex-row justify-center mb-4">
@@ -44,9 +49,8 @@ export default function Otp({ navigation }) {
           className="bg-orange-500 rounded p-4 mb-4 w-full flex-row items-center justify-center"
           onPress={handleVerify}
         >
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Icon name="login" size={24} color="white" />
-            <Text className="text-white text-center font-bold ml-2">Login</Text>
+          <View className="flex-row align-items-center">
+            <Text className="text-white text-center font-bold ml-2">Verify OTP</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity className="mt-4" onPress={() => Alert.alert('Code resent!')}>

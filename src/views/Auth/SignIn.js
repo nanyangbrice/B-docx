@@ -86,7 +86,7 @@ export default function SignIn() {
           </TouchableOpacity>
           <Text className="text-gray-500">Remember me</Text>
 
-          <TouchableOpacity onPress={() => navigation.navigate('ForgotPwd')} style={{ flex: 1, alignItems: 'flex-end', marginTop: 5 }}>
+          <TouchableOpacity onPress={() => navigation.navigate('Otp')} style={{ flex: 1, alignItems: 'flex-end', marginTop: 5 }}>
             <Text className="text-right text-gray-500">Forgot Password?</Text>
           </TouchableOpacity>
         </View>

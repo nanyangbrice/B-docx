@@ -14,7 +14,7 @@ const App = (props) => {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Otp" screenOptions={{ headerShown: false }}>
+        <Stack.Navigator initialRouteName="SignIn" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Otp" component={Otp} />
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="SignUp" component={SignUp} />
