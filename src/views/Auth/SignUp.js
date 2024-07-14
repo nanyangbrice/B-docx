@@ -58,8 +58,8 @@ export default function SignUp() {
       ToastService.showError('Error', 'Passwords do not match', 'bottom');
       return;
     }
-    
-    
+
+
     navigation.navigate('SignIn');
   };
 
@@ -147,7 +147,9 @@ export default function SignUp() {
             {isSelected && <Icon name="check" size={1.5} color="#FFFFFF" />}
           </TouchableOpacity>
           <Text className="text-gray-500">Agree with </Text>
-          <Text className="font-bold">Terms & Conditions</Text>
+          <TouchableOpacity>
+            <Text className="font-bold">Terms & Conditions</Text>
+          </TouchableOpacity>
         </View>
 
         <TouchableOpacity

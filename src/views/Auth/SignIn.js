@@ -16,7 +16,7 @@ export default function SignIn() {
   const [isLoading, setIsLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  const handleLogin = () => {
+  const handleLogin = (navigation) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
       ToastService.showError('Error', 'Please enter a valid email address.', 'bottom');
@@ -37,7 +37,6 @@ export default function SignIn() {
     }, 2000);
   };
 
-
   return (
     <>
       <View className="flex-1 p-4 bg-white">
@@ -45,6 +44,7 @@ export default function SignIn() {
         <Text className="text-base text-gray-500 mb-8">
           Use your email or continue with social to login to your account.
         </Text>
+
         <View className="border border-gray-400 rounded mb-4 w-full flex-row items-center">
           <TextInput
             placeholder="Email"
@@ -70,31 +70,32 @@ export default function SignIn() {
           </TouchableOpacity>
         </View>
 
-        <View style={{ flexDirection: 'row', alignItems: 'center' }} className="mb-4">
-        <TouchableOpacity
-            onPress={() => setSelection(!isSelected)}
-            style={{
-              backgroundColor: isSelected ? 'rgb(249 115 22)' : '#E5E7EB',
-              borderWidth: 1,
-              borderColor: '#D1D5DB',
-              borderRadius: 4,
-              padding: 8,
-              marginRight: 8,
-            }}
-          >
-            {isSelected && <Icon name="check" size={1.5} color="#FFFFFF" />}
-          </TouchableOpacity>
-          <Text className="text-gray-500">Remember me</Text>
+        <View className="mb-4 flex-row items-center justify-between">
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <TouchableOpacity
+              onPress={() => setSelection(!isSelected)}
+              style={{
+                backgroundColor: isSelected ? 'rgb(249 115 22)' : '#E5E7EB',
+                borderWidth: 1,
+                borderColor: '#D1D5DB',
+                borderRadius: 4,
+                padding: 8,
+                marginRight: 8,
+              }}
+            >
+              {isSelected && <Icon name="check" size={1} color="#FFFFFF" />}
+            </TouchableOpacity>
+            <Text className="text-gray-500">Remember me</Text>
+          </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate('Otp')} style={{ flex: 1, alignItems: 'flex-end', marginTop: 5 }}>
-            <Text className="text-right text-gray-500">Forgot Password?</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('ForgotPwd')}>
+            <Text className="text-gray-500">Forgot Password?</Text>
           </TouchableOpacity>
         </View>
 
-
         <TouchableOpacity
           className="bg-orange-500 rounded p-4 mb-4 w-full flex-row items-center justify-center"
-          onPress={handleLogin}
+          onPress={() => handleLogin(navigation)}
           disabled={isLoading}
         >
           {isLoading ? (
@@ -115,7 +116,7 @@ export default function SignIn() {
             <Text className="text-gray-500 text-center">Create an account.</Text>
           </TouchableOpacity>
         </View>
-      </View >
+      </View>
       <Toast />
     </>
   );
